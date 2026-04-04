@@ -6,6 +6,7 @@ use App\Models\Securitas;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contact extends Model
@@ -23,7 +24,7 @@ class Contact extends Model
     ];
 
     /**
-     * Get the securitas that owns the Contact
+     * Get the user that owns the Contact
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -37,9 +38,9 @@ class Contact extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    // public function purchase_orders(): HasMany
-    // {
-    //     return $this->hasMany(PurchaseOrder::class, 'foreign_key', 'local_key');
-    // }
+    public function purchase_orders(): HasMany
+    {
+        return $this->hasMany(PurchaseOrder::class, 'id_contact_supplier', 'id');
+    }
 
 }

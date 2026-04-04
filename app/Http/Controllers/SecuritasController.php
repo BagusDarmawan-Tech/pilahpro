@@ -10,7 +10,6 @@ class SecuritasController extends Controller
 {
     public function index(){
         $securitas = Securitas::all();
-
         return SecuritasResource::collection($securitas);
     }
 

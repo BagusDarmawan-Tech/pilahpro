@@ -50,8 +50,10 @@ class ContactController extends Controller
         $contact->update($validated);
         return new ContactResource($contact->loadMissing(['securitas:id,name_securitas']));
     }
-    public function destroy(Request $request, $id)
-    {
 
+    public function destroy($id){
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+        return new ContactResource($contact);
     }
 }

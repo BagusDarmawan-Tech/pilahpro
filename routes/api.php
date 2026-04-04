@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\SecuritasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,10 @@ Route::get('/contacts', [ContactController::class, 'index']);
 Route::get('/contact/{id}', [ContactController::class, 'show']);
 Route::post('/contact', [ContactController::class, 'store']);
 Route::patch('/contact/{id}', [ContactController::class, 'update']);
+Route::delete('/contact/{id}', [ContactController::class, 'delete']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/purchase_orders', [PurchaseOrderController::class, 'index']);
+Route::post('/purchase_order', [PurchaseOrderController::class, 'store']);
+Route::get('/purchase_order/{id}', [PurchaseOrderController::class, 'show']);
+Route::patch('/purchase_order/{id}', [PurchaseOrderController::class, 'update']);
+Route::delete('/purchase_order/{id}', [PurchaseOrderController::class, 'destroy']);
