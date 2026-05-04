@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PurchaseOrderResource extends JsonResource
+class SaleProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,16 +16,14 @@ class PurchaseOrderResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "id_contact_supplier" => $this->id_contact_supplier,
-            "contact" =>$this->whenloaded("contact"),
-            "name_purchase_order" =>$this->name_purchase_order,
-            "status" =>$this->status,
-            'date_purchase_order' => $this->date_purchase_order
-                ? \Carbon\Carbon::parse($this->date_purchase_order)->format('Y-m-d')
+            "id_contact_buyer" => $this->id_contact_buyer,
+            "buyer" =>$this->whenloaded("buyer"),
+            "name_sale_product" =>$this->name_sale_product,
+            "grand_total" =>$this->grand_total,
+            'date_sale_product' => $this->date_sale_product
+                ? \Carbon\Carbon::parse($this->date_sale_product)->format('Y-m-d')
                 : null,
-            "notes_purchase_order" =>$this->notes_purchase_order,
             "created_at" => $this->created_at->format('y-m-d'),
         ];
-
     }
 }

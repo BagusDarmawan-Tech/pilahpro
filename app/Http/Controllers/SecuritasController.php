@@ -19,6 +19,9 @@ class SecuritasController extends Controller
         $validated = $request->validate([
         'name_securitas' => 'required|max:100',
         'code_securitas' => 'required|max:10',
+        ],[
+            'name_securitas.required' => 'Nama bank harus diisi',
+            'code_securitas.required' => 'Kode bank harus diisi',
         ]);
 
         // return response()->json('berhasil');

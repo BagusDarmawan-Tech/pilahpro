@@ -43,4 +43,14 @@ class Contact extends Model
         return $this->hasMany(PurchaseOrder::class, 'id_contact_supplier', 'id');
     }
 
+    /**
+     * Get all of the purchase_orders for the Contact
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function buyer(): HasMany
+    {
+        return $this->hasMany(PurchaseOrder::class, 'id_contact_buyer', 'id');
+    }
+
 }

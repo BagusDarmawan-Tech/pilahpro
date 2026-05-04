@@ -26,7 +26,7 @@ class PurchaseOrderController extends Controller
             'name_purchase_order' => 'required|string|max:255',
             'status' => 'required|integer',
             'date_purchase_order' => 'required|date',
-            'notes_purchase_orders' => 'nullable|string',
+            'notes_purchase_order' => 'nullable|string',
         ]);
         $purchase_order = PurchaseOrder::create($validated);
         return new PurchaseOrderResource($purchase_order->loadMissing('contact:id,name_contact'));
@@ -39,7 +39,7 @@ class PurchaseOrderController extends Controller
             'name_purchase_order' => 'required|string|max:255',
             'status' => 'required|integer',
             'date_purchase_order' => 'required|date',
-            'notes_purchase_orders' => 'nullable|string',
+            'notes_purchase_order' => 'nullable|string',
         ]);
 
         $purchase = PurchaseOrder::findOrFail($id);
